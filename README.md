@@ -6,3 +6,7 @@ it to a shortcut in your DE
 ## Install
 
 Run install.sh as superuser and it will copy screen-sleep in /usr/bin
+
+## Uninstall
+
+Run uninstall.sh as superuser and it will remove screen-sleep from /usr/bin
