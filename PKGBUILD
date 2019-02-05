@@ -1,6 +1,6 @@
 # Maintainer: Fabio Sussarellu <sussarellu.fabio@gmail.com>
 pkgname=screen-sleep
-pkgver=0.5
+pkgver=0.1
 pkgrel=1
 pkgdesc='Simple tool for shut down PC screen'
 arch=('any')
