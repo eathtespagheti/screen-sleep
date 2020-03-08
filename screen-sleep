@@ -1,3 +1,13 @@
 #!/bin/bash
-sleep 1
-busctl --user set-property org.gnome.Mutter.DisplayConfig /org/gnome/Mutter/DisplayConfig org.gnome.Mutter.DisplayConfig PowerSaveMode i 1
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    sleep 1
+    busctl --user set-property org.gnome.Mutter.DisplayConfig /org/gnome/Mutter/DisplayConfig org.gnome.Mutter.DisplayConfig PowerSaveMode i 1
+    read -n 1 -s -r -p "Waiting for keyboard inputs..."
+    busctl --user set-property org.gnome.Mutter.DisplayConfig /org/gnome/Mutter/DisplayConfig org.gnome.Mutter.DisplayConfig PowerSaveMode i 0
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    sleep 1
+    xset dpms force off
+    echo "Waiting for keyboard or mouse inputs..."
+else
+    echo "Display server not recognized or currently not supported!"
+fi
